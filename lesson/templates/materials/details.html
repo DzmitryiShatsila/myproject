@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %} Materials list {% endblock %}
+
+{% block content %}
+    <a href="{% url 'lesson:all_materials' %}">All materials</a>
+    <h1>{{material.title}}</h1>
+    <h2>{{ material.title }}</h2>
+    <p>
+        Material published {{material.publish}} by {{material.author}}
+    </p>
+    {{material.body|linebreaks}}
+{% endblock %}
