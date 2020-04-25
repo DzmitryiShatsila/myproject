@@ -2,11 +2,13 @@
 {% block title %} Materials list {% endblock %}
 
 {% block content %}
-    <a href="{% url 'lesson:all_materials' %}">All materials</a>
-    <h1>{{material.title}}</h1>
+    <a href="{% url 'lesson:all_materials' %}" >All materials</a>
     <h2>{{ material.title }}</h2>
     <p>
-        Material published {{material.publish}} by {{material.author}}
+        Material published {{ material.publish }} by {{ material.author }}
     </p>
-    {{material.body|linebreaks}}
+    {{ material.body|linebreaks }}
+    <p>
+        <a href="{% url 'lesson:share_material' material.id %}">Share this post</a>
+    </p>
 {% endblock %}

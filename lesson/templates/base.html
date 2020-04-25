@@ -7,6 +7,12 @@
     <link href="{% static 'styles.css' %}" rel="stylesheet">
 </head>
 <body>
+{% if request.user.is_authenticated %}
+    Hi {{request.user.first_name}}
+    <a href="{% url 'lesson:logout' %}">logout</a>
+{% else %}
+    <a href="{% url 'lesson:login' %}">login</a>
+{% endif%}
 {% block content %}
 {% endblock %}
 </body>

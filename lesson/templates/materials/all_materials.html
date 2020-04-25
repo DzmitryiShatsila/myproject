@@ -8,11 +8,11 @@
             <a href="{{ material.get_absolute_url }}">
                 {{ material.title }}
             </a>
-
         </h2>
         <p>
             Material published {{material.publish}} by {{material.author}}
         </p>
-        {{material.body|truncatewords:2}}
+        {{material.body|linebreaks|truncatewords_html:2}}
     {% endfor %}
+    <a href="{% url 'lesson:create_form' %}"> create new</a>
 {% endblock %}

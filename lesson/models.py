@@ -6,6 +6,12 @@ from django.urls import reverse
 # Create your models here.
 
 
+class TheoryManager(models.Manager):
+    def get_queryset(self):
+        # return super(TheoryManager, self).get_queryset().filter(material_type='practice')
+        return super().get_queryset()
+
+
 class Material(models.Model):
     MATERIAL_TYPE = (
         ('theory', 'Theoretical material'),
@@ -24,9 +30,10 @@ class Material(models.Model):
     material_type = models.CharField(max_length=20,
                                      choices=MATERIAL_TYPE,
                                      default='theory')
+    objects = models.Manager()
+    theory = TheoryManager()
 
-    # def __str__(self):
-    #     return self.title
+
     def get_absolute_url(self):
         return reverse('lesson:material_details',
                        args=[self.publish.year,

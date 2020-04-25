@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %} LOGOUT {% endblock %}
+
+{% block content %}
+    <h2> User logout </h2>
+    Logout win. You can login again:
+    <p>
+        <button><a href="{% url 'lesson:login' %}">LOGIN</a></button>
+    </p>
+<!--    <form action="." method="post">-->
+<!--        {{ form.as_p }}-->
+<!--        {% csrf_token %}-->
+<!--        <input type="hidden" name="next" value="{{ next }}">-->
+<!--        <input type="submit" value="Log-in">-->
+<!--    </form>-->
+{% endblock %}
